@@ -11,7 +11,7 @@ Complete, production-ready reference implementations of a RAG system using ToonD
 
 | Language | Directory | Description |
 |----------|-----------|-------------|
-| **Python** | [`toondb_rag/`](./toondb_rag) | Full RAG pipeline with ToonDB persistence, chunking, and Azure OpenAI integration. |
+| **Python** | [`toondb_rag_python/`](./toondb_rag_python) | Full RAG pipeline with ToonDB persistence, chunking, and Azure OpenAI integration. |
 | **Node.js** | [`toondb_rag_node/`](./toondb_rag_node) | Node.js implementation using `@sushanth/toondb` SDK. |
 | **Go** | [`toondb_rag_go/`](./toondb_rag_go) | Go implementation demonstrating the `toondb-go` SDK in a RAG context. |
 | **Rust** | [`toondb_rag_rust/`](./toondb_rag_rust) | High-performance Rust implementation using the native `toondb` crate. |
@@ -51,7 +51,7 @@ Feel free to submit Pull Requests with new examples or improvements to existing 
 
 ## 📄 License
 
-MIT License - see individual directories or the root LICENSE file for details.
+Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## 🔗 Useful Links
 
