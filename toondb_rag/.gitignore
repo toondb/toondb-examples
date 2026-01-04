@@ -1,0 +1,51 @@
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+.eggs/
+*.egg-info/
+*.egg
+
+# ToonDB data files
+*_toondb_data/
+toondb_data/
+*.db
+*.sock
+*.pid
+wal.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.whl
+
+# Logs
+*.log
+logs/
+
+# Test outputs
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Documents folder (demo content)
+documents/

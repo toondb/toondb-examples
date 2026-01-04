@@ -1,0 +1,37 @@
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# ToonDB data files
+*_toondb_data/
+toondb_data/
+*.db
+*.sock
+*.pid
+wal.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Documents folder (demo content)
+documents/
+
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
