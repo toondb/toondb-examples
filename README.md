@@ -52,6 +52,13 @@ These examples demonstrate how to use ToonDB as a high-performance memory backen
 - **Entity Extraction**: Automatically extracts and stores named entities (People, Organizations) alongside conversation history.
 - **User Management**: Manages user profiles and metadata associated with conversation threads.
 
+#### 7. Context Query Builder (`toondb_context_builder_examples`)
+**Best for**: Managing LLM context under strict token budgets.
+- **Priority-Based Truncation**: Intelligently fits system message, query, history, and retrieval results within token limits.
+- **Token Budget Management**: Automatically truncates lower-priority content when space is tight.
+- **TOON Integration**: Demonstrates using `Database.to_toon()` for ultra-compact retrieval formatting.
+- **Flexible Assembly**: Supports different priority levels for different content types.
+
 ### 📚 ToonDB SDK Examples
 Simple examples demonstrating basic CRUD operations, SQL usage, and connection handling.
 

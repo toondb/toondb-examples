@@ -1,6 +1,6 @@
 langgraph
 langchain-core
 langchain-openai
-toondb-client
+toondb-client>=0.3.1
 python-dotenv
 numpy
