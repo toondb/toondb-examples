@@ -60,3 +60,9 @@ Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 - [Node.js SDK (npm)](https://www.npmjs.com/package/@sushanth/toondb)
 - [Go SDK](https://pkg.go.dev/github.com/toondb/toondb-go)
 - [Rust Crate](https://crates.io/crates/toondb)
+
+## Acknowledgements
+
+Some of the agent memory examples (Wizard of Oz, Podcast, Zep ports) are referenced and adapted from the following projects:
+- [Zep](https://github.com/getzep/zep)
+- [Graphiti](https://github.com/getzep/graphiti)

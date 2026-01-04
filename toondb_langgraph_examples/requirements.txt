@@ -1,0 +1,6 @@
+langgraph
+langchain-core
+langchain-openai
+toondb-client
+python-dotenv
+numpy
