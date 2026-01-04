@@ -13,8 +13,8 @@ Complete, production-ready reference implementations of a RAG system using ToonD
 |----------|-----------|-------------|
 | **Python** | [`toondb_rag_python/`](./toondb_rag_python) | Full RAG pipeline with ToonDB persistence, chunking, and Azure OpenAI integration. |
 | **Node.js** | [`toondb_rag_node/`](./toondb_rag_node) | Node.js implementation using `@sushanth/toondb` SDK. |
-| **Go** | [`toondb_rag_go/`](./toondb_rag_go) | Go implementation demonstrating the `toondb-go` SDK in a RAG context. |
 | **Rust** | [`toondb_rag_rust/`](./toondb_rag_rust) | High-performance Rust implementation using the native `toondb` crate. |
+| **Go** | [External Repo →](https://github.com/toondb/toondb-golang-examples) | Go examples are maintained in a separate repository. |
 
 ### 🤖 Agent Memory & Advanced Scenarios
 These examples demonstrate how to use ToonDB as a high-performance memory backend for autonomous agents, implementing features like long-term recall, semantic search, and state persistence.
@@ -64,9 +64,9 @@ Simple examples demonstrating basic CRUD operations, SQL usage, and connection h
 
 | Language | Directory | Description |
 |----------|-----------|-------------|
-| **Go** | [`toondb_go_examples/`](./toondb_go_examples) | Basic usage of the Go SDK, including connection, key-value ops, and SQL checks. |
 | **Node.js**| [`toondb_node_examples/`](./toondb_node_examples) | JavaScript examples for Node.js, showing setup, basic operations, and SQL. |
 | **Rust** | [`toondb_rust_examples/`](./toondb_rust_examples) | Rust native examples showing how to embed ToonDB directly. |
+| **Go** | [External Repo →](https://github.com/toondb/toondb-golang-examples) | Go examples are maintained in a separate repository. |
 
 ## 🚀 Getting Started
 
