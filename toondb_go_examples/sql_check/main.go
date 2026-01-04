@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/toondb/toondb/toondb-go"
+	"github.com/toondb/toondb-go"
 )
 
 func main() {
