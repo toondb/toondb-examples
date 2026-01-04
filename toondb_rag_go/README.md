@@ -35,8 +35,8 @@ go run ./cmd/demo
 package main
 
 import (
-    "github.com/toondb/toondb-rag-go/internal/config"
-    "github.com/toondb/toondb-rag-go/internal/rag"
+    "github.com/toondb/toondb-examples/toondb_rag_go/internal/config"
+    "github.com/toondb/toondb-examples/toondb_rag_go/internal/rag"
 )
 
 func main() {

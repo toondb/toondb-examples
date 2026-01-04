@@ -9,7 +9,7 @@ import (
 	"math"
 	"net/http"
 
-	"github.com/toondb/toondb-rag-go/internal/config"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/config"
 )
 
 // Embedder interface for embedding models

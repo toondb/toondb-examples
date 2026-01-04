@@ -4,12 +4,12 @@ package rag
 import (
 	"fmt"
 
-	"github.com/toondb/toondb-rag-go/internal/chunking"
-	"github.com/toondb/toondb-rag-go/internal/config"
-	"github.com/toondb/toondb-rag-go/internal/documents"
-	"github.com/toondb/toondb-rag-go/internal/embeddings"
-	"github.com/toondb/toondb-rag-go/internal/generation"
-	"github.com/toondb/toondb-rag-go/internal/vectorstore"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/chunking"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/config"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/documents"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/embeddings"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/generation"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/vectorstore"
 )
 
 // Generator interface for LLM generation

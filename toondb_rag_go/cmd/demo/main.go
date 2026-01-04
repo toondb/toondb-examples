@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/toondb/toondb-rag-go/internal/config"
-	"github.com/toondb/toondb-rag-go/internal/rag"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/config"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/rag"
 )
 
 const sampleContent = `

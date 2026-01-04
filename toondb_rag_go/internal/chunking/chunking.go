@@ -4,7 +4,7 @@ package chunking
 import (
 	"strings"
 
-	"github.com/toondb/toondb-rag-go/internal/documents"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/documents"
 )
 
 // Chunker interface for chunking strategies

@@ -8,7 +8,7 @@ import (
 	"math"
 
 	toondb "github.com/toondb/toondb-go"
-	"github.com/toondb/toondb-rag-go/internal/documents"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/documents"
 )
 
 // SearchResult represents a search result

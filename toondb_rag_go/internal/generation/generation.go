@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/toondb/toondb-rag-go/internal/config"
-	"github.com/toondb/toondb-rag-go/internal/vectorstore"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/config"
+	"github.com/toondb/toondb-examples/toondb_rag_go/internal/vectorstore"
 )
 
 // RAGResponse represents a RAG response

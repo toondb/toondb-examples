@@ -1,4 +1,4 @@
-module github.com/toondb/toondb-rag-go
+module github.com/toondb/toondb-examples/toondb_rag_go
 
 go 1.21
 
