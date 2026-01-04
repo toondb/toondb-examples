@@ -16,6 +16,18 @@ Complete, production-ready reference implementations of a RAG system using ToonD
 | **Go** | [`toondb_rag_go/`](./toondb_rag_go) | Go implementation demonstrating the `toondb-go` SDK in a RAG context. |
 | **Rust** | [`toondb_rag_rust/`](./toondb_rag_rust) | High-performance Rust implementation using the native `toondb` crate. |
 
+### 🤖 Agent Memory & Advanced Scenarios
+Examples demonstrating ToonDB as a memory backend for agents and specific domain RAG. These examples focus on **Context Retention**, **Semantic Search**, and **Agent State**.
+
+| Directory | Description |
+|-----------|-------------|
+| [`toondb_langgraph_examples/`](./toondb_langgraph_examples) | **LangGraph Agent**: Persistent state and long-term memory for LangGraph agents. |
+| [`toondb_ecommerce_examples/`](./toondb_ecommerce_examples) | **eCommerce RAG**: Product catalog ingestion and semantic search for shopping assistants. |
+| [`toondb_azure_openai_examples/`](./toondb_azure_openai_examples) | **Azure OpenAI**: Port of "California Politics" demo, storing/retrieving facts about politicians. |
+| [`toondb_wizard_of_oz_examples/`](./toondb_wizard_of_oz_examples) | **Wizard of Oz**: Ingesting and searching book chunks (Unstructured text). |
+| [`toondb_podcast_examples/`](./toondb_podcast_examples) | **Podcast Search**: Parsing and searching transcript segments with speaker metadata. |
+| [`toondb_zep_examples/`](./toondb_zep_examples) | **Zep Port**: Examples ported from Zep (Simple, Entities, User Management). |
+
 ### 📚 ToonDB SDK Examples
 Simple examples demonstrating basic CRUD operations, SQL usage, and connection handling.
 
