@@ -1,4 +1,4 @@
-module sdk_test
+module toondb_go_examples
 
 go 1.25.5
 

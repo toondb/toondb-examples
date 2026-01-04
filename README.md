@@ -1,218 +1,59 @@
-# ToonDB RAG Examples
+# ToonDB Examples
 
-Production-ready **Retrieval-Augmented Generation (RAG)** implementations using ToonDB as the vector database, with examples in Python, Node.js, Go, and Rust.
+Welcome to the official examples repository for **ToonDB**, the high-performance embedded database designed for AI applications. This repository contains various examples to help you get started with ToonDB across different programming languages and use cases.
 
-## 🚀 Quick Start
+## 📂 Repository Structure
 
-Each implementation follows the same architecture and can be configured with Azure OpenAI or any OpenAI-compatible API.
+The repository is organized by language and use case.
 
-### Python
-```bash
-cd toondb_rag
-pip install toondb-client openai python-dotenv numpy
-cp .env.example .env  # Add your API keys
-python demo.py
-```
+### 🧠 RAG Applications (Retrieval-Augmented Generation)
+Complete, production-ready reference implementations of a RAG system using ToonDB as the vector store and Azure OpenAI.
 
-### Node.js
-```bash
-cd toondb_rag_node
-npm install
-cp .env.example .env  # Add your API keys
-node demo.js
-```
+| Language | Directory | Description |
+|----------|-----------|-------------|
+| **Python** | [`toondb_rag/`](./toondb_rag) | Full RAG pipeline with ToonDB persistence, chunking, and Azure OpenAI integration. |
+| **Node.js** | [`toondb_rag_node/`](./toondb_rag_node) | Node.js implementation using `@sushanth/toondb` SDK. |
+| **Go** | [`toondb_rag_go/`](./toondb_rag_go) | Go implementation demonstrating the `toondb-go` SDK in a RAG context. |
+| **Rust** | [`toondb_rag_rust/`](./toondb_rag_rust) | High-performance Rust implementation using the native `toondb` crate. |
 
-### Go
-```bash
-cd toondb_rag_go
-go mod download
-cp .env.example .env  # Add your API keys
-go run ./cmd/demo
-```
+### 📚 Basic SDK Examples
+Simple examples demonstrating basic CRUD operations, SQL usage, and connection handling.
 
-### Rust
-```bash
-cd toondb_rag_rust
-cargo build
-cp .env.example .env  # Add your API keys
-cargo run
-```
+| Language | Directory | Description |
+|----------|-----------|-------------|
+| **Go** | [`toondb_go_examples/`](./toondb_go_examples) | Basic usage of the Go SDK, including connection and simple queries. |
+| **Node.js**| [`toondb_node_examples/`](./toondb_node_examples) | JavaScript examples for Node.js, showing setup and basic operations. |
+| **Rust** | [`toondb_rust_examples/`](./toondb_rust_examples) | Rust native examples showing how to embed ToonDB directly. |
 
-## 📁 Project Structure
+## 🚀 Getting Started
 
-All implementations share the same modular architecture:
+Choose your preferred language and navigate to the corresponding directory. Each example folder contains its own `README.md` with specific setup and running instructions.
 
-```
-toondb_rag_<lang>/
-├── config       # Configuration management
-├── documents    # Document loading & preprocessing
-├── chunking     # Text chunking strategies (fixed, semantic)
-├── embeddings   # Azure OpenAI embedding integration
-├── vectorstore  # ToonDB vector storage
-├── generation   # LLM response generation
-├── rag          # Main orchestration
-└── demo         # Demo entry point
-```
+### Prerequisites
 
-## ⚙️ Configuration
+- **ToonDB**: Ensure you have access to ToonDB binaries or SDKs as required by the specific example.
+- **Language Runtimes**: Python 3.10+, Node.js 18+, Go 1.21+, or Rust 1.75+ depending on the example.
+- **API Keys**: For RAG examples, you will need an Azure OpenAI API key (or compatible OpenAI endpoint).
 
-Copy `.env.example` to `.env` and configure:
+## 🔑 Key Features Demonstrated
 
-```env
-# Azure OpenAI
-AZURE_OPENAI_API_KEY=your_key
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small
-AZURE_OPENAI_CHAT_DEPLOYMENT=gpt-4
+- **Vector Search**: Using ToonDB's HNSW index for fast similarity search.
+- **Persistence**: Storing embeddings and metadata reliably on disk.
+- **Hybrid Search**: Combining vector search with structured filtering (in applicable SDKs).
+- **Multi-Language Support**: Consistent API usage patterns across Python, TS/JS, Go, and Rust.
 
-# ToonDB
-TOONDB_PATH=./toondb_data
+## 🤝 Contributing
 
-# RAG Settings
-CHUNK_SIZE=512
-CHUNK_OVERLAP=50
-TOP_K=5
-MAX_CONTEXT_LENGTH=4000
-```
-
-## 📖 Usage Examples
-
-### Python
-
-```python
-from rag import ToonDBRAG
-
-# Initialize
-rag = ToonDBRAG(db_path="./my_rag_db")
-
-# Ingest documents
-rag.ingest_file("./docs/documentation.md")
-rag.ingest_directory("./docs", extensions=[".md", ".txt"])
-
-# Query
-response = rag.query("What is ToonDB?")
-print(response.answer)
-print(f"Confidence: {response.confidence}")
-print(f"Sources: {len(response.sources)}")
-```
-
-### Node.js
-
-```javascript
-const { ToonDBRAG } = require('./src/rag');
-
-async function main() {
-  const rag = new ToonDBRAG({ dbPath: './my_rag_db' });
-  await rag.initialize();
-  
-  await rag.ingestFile('./docs/documentation.md');
-  
-  const response = await rag.query('What is ToonDB?');
-  console.log(response.answer);
-}
-
-main();
-```
-
-### Go
-
-```go
-package main
-
-import (
-    "github.com/toondb/toondb-examples/toondb_rag_go/internal/rag"
-    "github.com/toondb/toondb-examples/toondb_rag_go/internal/config"
-)
-
-func main() {
-    cfg, _ := config.Load()
-    ragSystem := rag.New(cfg, rag.Options{
-        DBPath: "./my_rag_db",
-    })
-    defer ragSystem.Close()
-    
-    ragSystem.IngestFile("./docs/documentation.md")
-    
-    response, _ := ragSystem.Query("What is ToonDB?")
-    fmt.Println(response.Answer)
-}
-```
-
-### Rust
-
-```rust
-use toondb_rag::{ToonDBRAG, RAGOptions};
-
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
-    let config = Config::load();
-    let mut rag = ToonDBRAG::new(&config, RAGOptions {
-        db_path: Some("./my_rag_db".to_string()),
-        ..Default::default()
-    });
-    
-    rag.ingest_file("./docs/documentation.md").await?;
-    
-    let response = rag.query("What is ToonDB?").await?;
-    println!("{}", response.answer);
-    
-    Ok(())
-}
-```
-
-## 🔧 Features
-
-| Feature | Python | Node.js | Go | Rust |
-|---------|--------|---------|-----|------|
-| Azure OpenAI Embeddings | ✅ | ✅ | ✅ | ✅ |
-| Azure OpenAI LLM | ✅ | ✅ | ✅ | ✅ |
-| ToonDB Persistence | ✅ | ✅ | ✅ | ✅ |
-| Semantic Chunking | ✅ | ✅ | ✅ | ✅ |
-| Fixed-Size Chunking | ✅ | ✅ | ✅ | ✅ |
-| Mock Mode (Testing) | ✅ | ✅ | ✅ | ✅ |
-| Confidence Scores | ✅ | ✅ | ✅ | ✅ |
-| Source Citations | ✅ | ✅ | ✅ | ✅ |
-
-## 📦 Dependencies
-
-### Python
-- `toondb-client` >= 0.3.0
-- `openai` >= 1.0.0
-- `python-dotenv`
-- `numpy`
-
-### Node.js
-- `@sushanth/toondb` >= 0.3.0
-- `openai` >= 4.0.0
-- `dotenv`
-
-### Go
-- `github.com/toondb/toondb-go` >= 0.3.0
-- `github.com/joho/godotenv`
-
-### Rust
-- `toondb` = "0.3"
-- `tokio`
-- `reqwest`
-- `serde`
-
-## 🧪 Testing
-
-Each implementation includes a demo script that:
-1. Creates a sample ToonDB documentation file
-2. Ingests and chunks the document
-3. Generates embeddings via Azure OpenAI
-4. Stores vectors in ToonDB (persistent)
-5. Runs 5 test queries with real LLM responses
+Feel free to submit Pull Requests with new examples or improvements to existing ones!
 
 ## 📄 License
 
-MIT License - see LICENSE file for details.
+MIT License - see individual directories or the root LICENSE file for details.
 
-## 🔗 Links
+## 🔗 Useful Links
 
-- [ToonDB Documentation](https://toondb.io)
-- [ToonDB Python SDK](https://pypi.org/project/toondb-client/)
-- [ToonDB Node.js SDK](https://www.npmjs.com/package/@sushanth/toondb)
-- [ToonDB Go SDK](https://pkg.go.dev/github.com/toondb/toondb-go)
-- [ToonDB Rust SDK](https://crates.io/crates/toondb)
+- [Official ToonDB Documentation](https://toondb.io)
+- [Python SDK (PyPI)](https://pypi.org/project/toondb-client/)
+- [Node.js SDK (npm)](https://www.npmjs.com/package/@sushanth/toondb)
+- [Go SDK](https://pkg.go.dev/github.com/toondb/toondb-go)
+- [Rust Crate](https://crates.io/crates/toondb)
