@@ -1,4 +1,4 @@
-module toondb_go_examples
+module github.com/toondb/toondb-examples/toondb_go_examples
 
 go 1.25.5
 

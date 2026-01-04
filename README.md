@@ -16,13 +16,13 @@ Complete, production-ready reference implementations of a RAG system using ToonD
 | **Go** | [`toondb_rag_go/`](./toondb_rag_go) | Go implementation demonstrating the `toondb-go` SDK in a RAG context. |
 | **Rust** | [`toondb_rag_rust/`](./toondb_rag_rust) | High-performance Rust implementation using the native `toondb` crate. |
 
-### 📚 Basic SDK Examples
+### 📚 ToonDB SDK Examples
 Simple examples demonstrating basic CRUD operations, SQL usage, and connection handling.
 
 | Language | Directory | Description |
 |----------|-----------|-------------|
-| **Go** | [`toondb_go_examples/`](./toondb_go_examples) | Basic usage of the Go SDK, including connection and simple queries. |
-| **Node.js**| [`toondb_node_examples/`](./toondb_node_examples) | JavaScript examples for Node.js, showing setup and basic operations. |
+| **Go** | [`toondb_go_examples/`](./toondb_go_examples) | Basic usage of the Go SDK, including connection, key-value ops, and SQL checks. |
+| **Node.js**| [`toondb_node_examples/`](./toondb_node_examples) | JavaScript examples for Node.js, showing setup, basic operations, and SQL. |
 | **Rust** | [`toondb_rust_examples/`](./toondb_rust_examples) | Rust native examples showing how to embed ToonDB directly. |
 
 ## 🚀 Getting Started
@@ -31,7 +31,10 @@ Choose your preferred language and navigate to the corresponding directory. Each
 
 ### Prerequisites
 
-- **ToonDB**: Ensure you have access to ToonDB binaries or SDKs as required by the specific example.
+- **ToonDB Server**: For Go, Node.js, and Python SDKs, ensure the `toondb` or `toondb-server` binary is installed and available in your system's `PATH`.
+  - Python: `pip install toondb-client` (includes binaries)
+  - Go: `go install github.com/toondb/toondb/cmd/toondb@latest`
+  - Rust: Uses the library directly.
 - **Language Runtimes**: Python 3.10+, Node.js 18+, Go 1.21+, or Rust 1.75+ depending on the example.
 - **API Keys**: For RAG examples, you will need an Azure OpenAI API key (or compatible OpenAI endpoint).
 
