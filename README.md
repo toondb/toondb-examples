@@ -1,53 +1,91 @@
-# ToonDB Examples
+# SochDB Rust Examples
 
-Welcome to the official examples repository for **ToonDB**, the high-performance embedded database designed for AI applications. This repository contains various examples to help you get started with ToonDB across different programming languages and use cases.
+Welcome to the official Rust examples repository for **SochDB**, the high-performance embedded database designed for AI applications.
 
 ## 📂 Repository Structure
 
-The repository is organized by language and use case.
+### 🦀 Basic Examples
+Complete, production-ready examples using the official `sochdb` crate from crates.io.
 
-### 🧠 RAG Applications (Retrieval-Augmented Generation)
-Complete, production-ready reference implementations of a RAG system using ToonDB as the vector store and Azure OpenAI.
+| Directory | Description |
+|-----------|-------------|
+| [`sochdb-examples/`](./sochdb-examples) | Comprehensive examples using sochdb 0.4.0 from crates.io |
+| [`sochdb-rag-example/`](./sochdb-rag-example) | Full RAG pipeline with Azure OpenAI integration |
 
-| Language | Directory | Description |
-|----------|-----------|-------------|
-| **Python** | [`toondb_rag_python/`](./toondb_rag_python) | Full RAG pipeline with ToonDB persistence, chunking, and Azure OpenAI integration. |
-| **Node.js** | [`toondb_rag_node/`](./toondb_rag_node) | Node.js implementation using `@sushanth/toondb` SDK. |
-| **Rust** | [`toondb_rag_rust/`](./toondb_rag_rust) | High-performance Rust implementation using the native `toondb` crate. |
-| **Go** | [External Repo →](https://github.com/toondb/toondb-golang-examples) | Go examples are maintained in a separate repository. |
+## 🚀 Quick Start
 
-### 🤖 Agent Memory & Advanced Scenarios
-These examples demonstrate how to use ToonDB as a high-performance memory backend for autonomous agents, implementing features like long-term recall, semantic search, and state persistence.
+### Prerequisites
 
-#### 1. LangGraph Agent (`toondb_langgraph_examples`)
-**Best for**: Building complex, stateful agents with LangGraph.
-- **Persistent State**: Uses ToonDB as a `checkpointer` to save graph state (threads), allowing agents to pause and resume.
-- **Long-Term Memory**: Implements a dedicated memory store for recalling past user interactions using vector search.
-- **Features**: Time-weighted retrieval, compact memory format.
+- Rust 1.70+ (2021 edition)
+- Cargo
 
-#### 2. eCommerce RAG (`toondb_ecommerce_examples`)
-**Best for**: Shopping assistants, product catalogs, and recommendation systems.
-- **Hybrid Search**: Combines semantic search (embeddings) with metadata filtering (e.g., price, category).
-- **TOON Format**: Demonstrates `Database.to_toon()` for formatting search results into a token-efficient string for LLMs.
-- **Ingestion**: Scripts to ingest and index structured JSON product data.
+### Running the Basic Examples
 
-#### 3. Azure OpenAI "California Politics" (`toondb_azure_openai_examples`)
-**Best for**: Knowledge retrieval systems using Azure OpenAI.
-- **Fact Retrieval**: Stores and retrieves facts about specific entities (Kamala Harris, Gavin Newsom) from disjointed text chunks.
-- **High Accuracy**: Optimized for precision in retrieving "needle in a haystack" facts.
-- **Integration**: Direct integration with Azure OpenAI embeddings and chat models.
+```bash
+cd sochdb-examples
+cargo run --release
+```
 
-#### 4. Wizard of Oz (`toondb_wizard_of_oz_examples`)
-**Best for**: Long-context narrative understanding and book ingestion.
-- **Chunking Strategy**: Demonstrates how to chunk large unstructured text (a novel) into semantic episodes.
-- **Narrative Search**: Enables searching for plot points, character details, and thematic elements across a long document.
+### What's Included
 
-#### 5. Podcast Search (`toondb_podcast_examples`)
-**Best for**: Audio transcripts, meeting notes, and multi-speaker dialogue.
-- **Transcript Parsing**: Handles specialized formats (Speaker: Timestamp) and effectively models dialogue turns.
-- **Speaker Attribution**: Preserves identifying metadata to allow searching for "What did X say about Y?".
+The basic examples demonstrate:
+- ✅ Basic key-value operations (Put, Get, Delete)
+- ✅ Path-based hierarchical keys
+- ✅ Database statistics
+- ✅ Using the published crate from crates.io
 
-#### 6. Zep Port (`toondb_zep_examples`)
+## 📦 Using SochDB in Your Project
+
+Add to your `Cargo.toml`:
+
+```toml
+[dependencies]
+sochdb = "0.4.0"
+anyhow = "1"
+```
+
+Example code:
+
+```rust
+use sochdb::Database;
+use anyhow::Result;
+
+fn main() -> Result<()> {
+    // Open database
+    let db = Database::open("./mydb")?;
+    
+    // Basic operations
+    db.put(b"key", b"value")?;
+    let value = db.get(b"key")?;
+    
+    // Path-based keys
+    db.put_path("users/alice/email", b"alice@example.com")?;
+    let email = db.get_path("users/alice/email")?;
+    
+    Ok(())
+}
+```
+
+## 🧠 RAG Application Example
+
+See [`sochdb-rag-example/`](./sochdb-rag-example) for a complete Retrieval-Augmented Generation system using:
+- SochDB as the vector store
+- Azure OpenAI for embeddings and chat
+- Document chunking and ingestion
+
+## 📚 Documentation
+
+- [SochDB Main Repository](https://github.com/sochdb/sochdb)
+- [Rust Crate Documentation](https://docs.rs/sochdb)
+- [API Reference](https://sochdb.dev)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+Apache 2.0 - see [LICENSE](LICENSE) for details.
 **Best for**: Users migrating from Zep or needing entity-centric memory.
 - **Entity Extraction**: Automatically extracts and stores named entities (People, Organizations) alongside conversation history.
 - **User Management**: Manages user profiles and metadata associated with conversation threads.

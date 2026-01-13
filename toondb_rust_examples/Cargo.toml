@@ -1,7 +1,0 @@
-[package]
-name = "toondb-rust-examples"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-toondb = "0.2"
